@@ -1,0 +1,11 @@
+.catalog:
+  name: BlogDown
+  version: 1.0.0
+  description: 'BlogDown blogging platform'
+  uuid: blogdown-1.0.0-0
+
+blogdown:
+  scale: 2
+
+deputy:
+  scale: 1

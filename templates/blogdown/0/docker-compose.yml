@@ -1,0 +1,13 @@
+blogdown:
+  image: thingdown/blogdown:latest
+  tty: true
+  labels:
+    io.rancher.container.pull_image: always
+
+deputy:
+  image: thingdown/deputy:latest
+  tty: true
+  volumes:
+    blogdown-data:/app/content
+  labels:
+    io.rancher.container.pull_image: always
