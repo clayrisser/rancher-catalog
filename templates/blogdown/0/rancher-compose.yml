@@ -3,6 +3,23 @@
   version: 1.0.0
   description: 'BlogDown blogging platform'
   uuid: blogdown-1.0.0-0
+  questions:
+    - variable: github_repo
+      label: 'GitHub Repo'
+      type: string
+      default: ''
+    - variable: github_branch
+      label: 'GitHub Branch'
+      type: string
+      default: 'master'
+    - variable: github_username
+      label: 'GitHub Username'
+      type: string
+      default: ''
+    - variable: github_password
+      label: 'GitHub Password'
+      type: string
+      default: ''
 
 blogdown:
   scale: 2

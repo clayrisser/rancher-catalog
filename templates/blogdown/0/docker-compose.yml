@@ -6,8 +6,13 @@ blogdown:
 
 deputy:
   image: thingdown/deputy:latest
+  environment:
+    GITHUB_REPO: ${github_repo}
+    GITHUB_BRANCH: ${github_branch}
+    GITHUB_USERNAME: ${github_username}
+    GITHUB_PASSWORD: ${github_password}
   tty: true
   volumes:
-    blogdown-data:/app/content
+    - blogdown-data:/app/content
   labels:
     io.rancher.container.pull_image: always
