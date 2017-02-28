@@ -4,20 +4,20 @@
   description: 'BlogDown blogging platform'
   uuid: blogdown-1.0.0-0
   questions:
-    - variable: github_repo
-      label: 'GitHub Repo'
+    - variable: git_repo
+      label: 'Git Repo'
       type: string
       default: ''
-    - variable: github_branch
-      label: 'GitHub Branch'
+    - variable: git_branch
+      label: 'Git Branch'
       type: string
       default: 'master'
-    - variable: github_username
-      label: 'GitHub Username'
+    - variable: git_username
+      label: 'Git Username'
       type: string
       default: ''
-    - variable: github_password
-      label: 'GitHub Password'
+    - variable: git_password
+      label: 'Git Password'
       type: string
       default: ''
 
