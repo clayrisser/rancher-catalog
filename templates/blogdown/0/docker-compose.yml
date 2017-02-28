@@ -1,11 +1,15 @@
 blogdown:
   image: thingdown/blogdown:latest
+  ports:
+    - 5000:5000
   tty: true
   labels:
     io.rancher.container.pull_image: always
 
 deputy:
   image: thingdown/deputy:latest
+  ports:
+    - 3000:3000
   environment:
     GIT_REPO: ${git_repo}
     GIT_BRANCH: ${git_branch}
