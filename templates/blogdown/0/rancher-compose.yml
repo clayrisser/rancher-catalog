@@ -11,7 +11,7 @@
     - variable: git_branch
       label: 'Git Branch'
       type: string
-      default: 'master'
+      default: 'origin/master'
     - variable: git_username
       label: 'Git Username'
       type: string

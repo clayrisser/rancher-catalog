@@ -15,6 +15,7 @@ deputy:
     GIT_BRANCH: ${git_branch}
     GIT_USERNAME: ${git_username}
     GIT_PASSWORD: ${git_password}
+    CONTENT_PATH: /app/content
   tty: true
   volumes:
     - blogdown-data:/app/content
