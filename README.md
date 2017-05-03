@@ -1,15 +1,14 @@
 # Rancher Catalog
 
-An extended set of useful rancher catalog items
+An extended set of useful rancher catalog templates
 
 Please &#9733; this repo if you found it useful &#9733; &#9733; &#9733;
 
 
-## Features
+## Featured Templates
 <!------------------------------------------------------->
 
-* Editorconfig
-* README.md template
+* InvoiceNinja
 
 
 ## Installation
