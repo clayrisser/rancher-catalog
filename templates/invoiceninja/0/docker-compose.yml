@@ -1,0 +1,5 @@
+invoiceninja:
+    image: invoiceninja/invoiceninja:latest
+    tty: true
+    labels:
+        io.rancher.container.pull_image: always

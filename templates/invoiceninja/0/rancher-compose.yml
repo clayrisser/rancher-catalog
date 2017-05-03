@@ -1,0 +1,8 @@
+.catalog:
+    name: InvoiceNinja
+    version: 0.0.1
+    description: 'Invoices, expenses & time-tracking built with Laravel'
+    uuid: invoiceninja-0.0.1-0
+
+invoiceninja:
+    scale: 1

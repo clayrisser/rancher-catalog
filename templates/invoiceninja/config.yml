@@ -1,0 +1,4 @@
+name: 'InvoiceNinja'
+description: 'Invoices, expenses & time-tracking built with Laravel'
+version: 0.0.1
+category: Billing
