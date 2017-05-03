@@ -1,6 +1,6 @@
-# sacagawea
+# Rancher Catalog
 
-Opinionated style guides assist your software development expedition
+An extended set of useful rancher catalog items
 
 Please &#9733; this repo if you found it useful &#9733; &#9733; &#9733;
 
@@ -12,42 +12,40 @@ Please &#9733; this repo if you found it useful &#9733; &#9733; &#9733;
 * README.md template
 
 
-## Demo
-<!------------------------------------------------------->
-
-You're looking at the demo
-
-
 ## Installation
 <!------------------------------------------------------->
 
-```sh
-curl -OL https://raw.githubusercontent.com/jamrizzi/readme/master/README.md
-```
+1. Go to _Admin -> Settings_
+
+2. Click __Add Catalog__
+
+3. Add the following details
+
+| Name | Url | Branch |
+| -------- | -------------------------------------------------------------------------------------------------- | ------ |
+| JamRizzi | [https://github.com/jamrizzi/rancher-catalog.git](https://github.com/jamrizzi/rancher-catalog.git) | master |
+
+4. Click __Save__
 
 
 ## Dependencies
 <!------------------------------------------------------->
 
-A calico cat
+[Rancher](http://rancher.com/)
 
 
 ## Usage
 <!------------------------------------------------------->
 
-Scroll up and down until you're hypnotized
+1. Go to _Catalog -> JamRizzi_
+
+2. Select and install a catalog item
 
 
 ## Support
 <!------------------------------------------------------->
 
-Submit an [issue](https://github.com/jamrizzi/readme/issues/new)
-
-
-## Screenshots
-<!------------------------------------------------------->
-
-Sorry, I don't have any screenshots
+Submit an [issue](https://github.com/jamrizzi/rancher-catalog/issues/new)
 
 
 ## Buy Me Coffee
@@ -71,7 +69,7 @@ A ridiculous amount of coffee was consumed in the process of building this proje
 ## License
 <!------------------------------------------------------->
 
-[MIT License](https://github.com/jamrizzi/readme/blob/master/LICENSE)
+[MIT License](https://github.com/jamrizzi/rancher-catalog/blob/master/LICENSE)
 
 [Jam Risser](https://jamrizzi.com) &copy; 2017
 
@@ -85,8 +83,5 @@ A ridiculous amount of coffee was consumed in the process of building this proje
 ## Changelog
 <!------------------------------------------------------->
 
-0.0.2 (2017-04-28)
-* Added dependencies section
-
-0.0.1 (2017-04-28)
+0.0.1 (2017-06-05)
 * Initial release
