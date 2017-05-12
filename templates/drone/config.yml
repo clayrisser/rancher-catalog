@@ -1,0 +1,4 @@
+name: 'Drone'
+description: 'A continuous delivery platform built on Docker'
+version: 0.0.1
+category: 'Continuous Integration'

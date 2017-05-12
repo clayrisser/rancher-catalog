@@ -8,7 +8,9 @@ Please &#9733; this repo if you found it useful &#9733; &#9733; &#9733;
 ## Featured Templates
 <!------------------------------------------------------->
 
-* InvoiceNinja
+* [InvoiceNinja](https://www.invoiceninja.com/)
+* [Easy!Appointments](http://easyappointments.org/)
+* [Drone](https://github.com/drone/drone)
 
 
 ## Installation
@@ -21,8 +23,8 @@ Please &#9733; this repo if you found it useful &#9733; &#9733; &#9733;
 3. Add the following details
 
 | Name | Url | Branch |
-| -------- | -------------------------------------------------------------------------------------------------- | ------ |
-| JamRizzi | [https://github.com/jamrizzi/rancher-catalog.git](https://github.com/jamrizzi/rancher-catalog.git) | master |
+| -------- | --------------------------------------------------- | ------ |
+| JamRizzi | [https://github.com/jamrizzi/rancher-catalog.git]() | master |
 
 4. Click __Save__
 

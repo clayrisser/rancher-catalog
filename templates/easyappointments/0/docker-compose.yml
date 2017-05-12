@@ -1,0 +1,17 @@
+easyappointments:
+    image: jamrizzi/easyappointments:latest
+    environment:
+        DB_NAME: ${mysql_database}
+        DB_PASSWORD: ${mysql_root_password}
+    links:
+        - easyappointments-data:db
+
+easyappointments-data:
+    image: mariadb:latest
+    environment:
+        MYSQL_ROOT_PASSWORD: ${mysql_root_password}
+        MYSQL_DATABASE: ${mysql_database}
+    volumes:
+        - ${easyappointments_data}:/var/lib/mysql
+    labels:
+        ident: true

@@ -1,0 +1,44 @@
+.catalog:
+    name: 'Drone'
+    version: 0.0.1
+    description: 'Open source web scheduler'
+    uuid: drone-0.0.1-0
+    questions:
+        - variable: mysql_root_password
+            label: 'MYSQL Root Password'
+            type: string
+            required: true
+            default: hellodocker
+        - variable: mysql_database
+            label: 'MYSQL Database'
+            type: string
+            required: true
+            default: drone
+        - variable: drone_github_client
+            label: 'Drone GitHub Client'
+            type: string
+            required: true
+        - variable: drone_github_secret
+            label: 'Drone GitHub Secret'
+            type: string
+            required: true
+        - variable: drone_orgs
+            label: 'Drone Orgs'
+            type: string
+        - variable: drone_secret
+            label: 'Drone Secret'
+            type: string
+            required: true
+            default: hellodocker
+        - variable: drone_data
+            label: 'Drone Data'
+            type: string
+            required: true
+            default: /volumes/drone-data
+
+drone-data:
+    scale: 1
+drone-server:
+    scale: 1
+drone-agent:
+    scale: 1
