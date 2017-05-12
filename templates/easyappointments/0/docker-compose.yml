@@ -3,6 +3,7 @@ easyappointments:
   environment:
     DB_NAME: ${mysql_database}
     DB_PASSWORD: ${mysql_root_password}
+    BASE_URL: ${base_url}
   links:
     - easyappointments-data:db
 
