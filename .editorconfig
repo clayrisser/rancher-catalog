@@ -9,7 +9,7 @@ indent_size = 2
 [*.{js,jsx,py,json,yml}]
 charset = utf-8
 
-[*.{py,json,yml}]
+[*.{py,json}]
 indent_size = 4
 
 [Makefile]

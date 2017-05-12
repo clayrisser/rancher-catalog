@@ -1,26 +1,26 @@
 .catalog:
-    name: 'Easy!Appointments'
-    version: 0.0.1
-    description: 'Open source web scheduler'
-    uuid: easyappointments-0.0.1-0
-    questions:
-        - variable: mysql_root_password
-            label: 'MYSQL Root Password'
-            type: string
-            required: true
-            default: hellodocker
-        - variable: mysql_database
-            label: 'MYSQL Database'
-            type: string
-            required: true
-            default: easyappointments
-        - variable: easyappointments_data
-            label: 'Easy!Appointments Data'
-            type: string
-            required: true
-            default: /volumes/easyappointments-data
+  name: 'Easy!Appointments'
+  version: 0.0.1
+  description: 'Open source web scheduler'
+  uuid: easyappointments-0.0.1-0
+  questions:
+    - variable: mysql_root_password
+      label: 'MYSQL Root Password'
+      type: string
+      required: true
+      default: hellodocker
+    - variable: mysql_database
+      label: 'MYSQL Database'
+      type: string
+      required: true
+      default: easyappointments
+    - variable: easyappointments_data
+      label: 'Easy!Appointments Data'
+      type: string
+      required: true
+      default: /volumes/easyappointments-data
 
 easyappointments:
-    scale: 1
+  scale: 1
 easyappointments-data:
-    scale: 1
+  scale: 1

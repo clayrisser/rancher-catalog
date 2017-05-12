@@ -1,26 +1,26 @@
 .catalog:
-    name: InvoiceNinja
-    version: 0.0.1
-    description: 'Invoices, expenses & time-tracking built with Laravel'
-    uuid: invoiceninja-0.0.1-0
-    questions:
-        - variable: mysql_root_password
-            label: 'MYSQL Root Password'
-            type: string
-            required: true
-            default: hellodocker
-        - variable: mysql_database
-            label: 'MYSQL Database'
-            type: string
-            required: true
-            default: invoiceninja
-        - variable: invoiceninja_data
-            label: 'InvoiceNinja Data'
-            type: string
-            required: true
-            default: /volumes/invoiceninja-data
+  name: InvoiceNinja
+  version: 0.0.1
+  description: 'Invoices, expenses & time-tracking built with Laravel'
+  uuid: invoiceninja-0.0.1-0
+  questions:
+    - variable: mysql_root_password
+      label: 'MYSQL Root Password'
+      type: string
+      required: true
+      default: hellodocker
+    - variable: mysql_database
+      label: 'MYSQL Database'
+      type: string
+      required: true
+      default: invoiceninja
+    - variable: invoiceninja_data
+      label: 'InvoiceNinja Data'
+      type: string
+      required: true
+      default: /volumes/invoiceninja-data
 
 invoiceninja:
-    scale: 1
+  scale: 1
 invoiceninja-data:
-    scale: 1
+  scale: 1
