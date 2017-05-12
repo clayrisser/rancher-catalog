@@ -11,6 +11,7 @@ Please &#9733; this repo if you found it useful &#9733; &#9733; &#9733;
 * [InvoiceNinja](https://www.invoiceninja.com/)
 * [Easy!Appointments](http://easyappointments.org/)
 * [Drone](https://github.com/drone/drone)
+* [Mautic](https://www.mautic.org/)
 
 
 ## Installation
