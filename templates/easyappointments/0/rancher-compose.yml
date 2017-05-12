@@ -2,7 +2,7 @@
   name: 'Easy!Appointments'
   version: 0.0.1
   description: 'Open source web scheduler'
-  uuid: easyappointments-0.0.1-0
+  uuid: easyappointments-0.0.1-1
   questions:
     - variable: mysql_root_password
       label: 'MYSQL Root Password'
@@ -19,6 +19,11 @@
       type: string
       required: true
       default: /volumes/easyappointments-data
+    - variable: base_url
+      label: 'Base URL'
+      type: string
+      required: true
+      default: http://localhost:8888
 
 easyappointments:
   scale: 1
