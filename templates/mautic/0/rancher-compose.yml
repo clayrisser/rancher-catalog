@@ -1,0 +1,21 @@
+.catalog:
+  name: 'Mautic'
+  version: 0.0.1
+  description: 'Open source marketing automation software'
+  uuid: mautic-0.0.1-0
+  questions:
+    - variable: mysql_root_password
+      label: 'MYSQL Root Password'
+      type: string
+      required: true
+      default: hellodocker
+    - variable: mautic_data
+      label: 'Mautic Data'
+      type: string
+      required: true
+      default: /volumes/mautic-data
+
+mautic:
+  scale: 1
+mautic-data:
+  scale: 1

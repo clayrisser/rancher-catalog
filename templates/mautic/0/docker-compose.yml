@@ -1,0 +1,13 @@
+mautic:
+  image: mautic/mautic:latest
+  links:
+    - mautic-data:db
+
+mautic-data:
+  image: mariadb:latest
+  environment:
+    MYSQL_ROOT_PASSWORD: ${mysql_root_password}
+  volumes:
+    - ${mautic_data}:/var/lib/mysql
+  labels:
+    ident: true
