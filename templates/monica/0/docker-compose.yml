@@ -1,0 +1,36 @@
+monica:
+  image: monicahq/monicahq:latest
+  ports:
+    - 8888:80
+  environment:
+    DB_CONNECTION: mysql
+    DB_HOST: db
+    DB_PORT: 3306
+    DB_DATABASE: ${mysql_database}
+    DB_USERNAME: root
+    DB_PASSWORD: ${mysql_root_password}
+    APP_URL: ${app_url}
+    MAIL_DRIVER: smtp
+    MAIL_HOST: ${mail_host}
+    MAIL_PORT: ${mail_port}
+    MAIL_USERNAME: ${mail_username}
+    MAIL_PASSWORD: ${mail_password}
+    MAIL_FROM_ADDRESS: ${mail_from_address}
+    MAIL_FROM_NAME: ${mail_from_name}
+    APP_DEFAULT_TIMEZONE: ${app_default_timezone}
+    APP_DISABLE_SIGNUP: ${app_disabled_signup}
+    GOOGLE_ANALYTICS_APP_ID: ${google_analytics_app_id}
+    AWS_KEY: ${aws_key}
+    AWS_SECRET: ${aws_secret}
+    AWS_REGION: ${aws_region}
+    AWS_BUCKET: ${aws_bucket}
+  links:
+    - easyappointments-data:db
+
+monica-data:
+  image: mariadb:latest
+  environment:
+    MYSQL_ROOT_PASSWORD: ${mysql_root_password}
+    MYSQL_DATABASE: ${mysql_database}
+  volumes:
+    - ${monica_data}:/var/lib/mysql

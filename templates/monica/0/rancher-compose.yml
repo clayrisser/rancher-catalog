@@ -1,0 +1,31 @@
+.catalog:
+  name: 'Monica'
+  version: 0.0.1
+  description: 'The personal relationship manager'
+  uuid: easyappointments-0.0.1-1
+  questions:
+    - variable: mysql_root_password
+      label: 'MYSQL Root Password'
+      type: string
+      required: true
+      default: hellodocker
+    - variable: mysql_database
+      label: 'MYSQL Database'
+      type: string
+      required: true
+      default: easyappointments
+    - variable: easyappointments_data
+      label: 'Easy!Appointments Data'
+      type: string
+      required: true
+      default: /volumes/easyappointments-data
+    - variable: base_url
+      label: 'Base URL'
+      type: string
+      required: true
+      default: http://localhost:8888
+
+monica:
+  scale: 1
+monica-data:
+  scale: 1
