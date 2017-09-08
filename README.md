@@ -25,7 +25,7 @@ Please &#9733; this repo if you found it useful &#9733; &#9733; &#9733;
 
 | Name | Url | Branch |
 | -------- | --------------------------------------------------- | ------ |
-| JamRizzi | [https://github.com/jamrizzi/rancher-catalog.git]() | master |
+| jamrizzi | [https://github.com/jamrizzi/rancher-catalog.git]() | master |
 
 4. Click __Save__
 

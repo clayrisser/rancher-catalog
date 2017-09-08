@@ -25,7 +25,7 @@ monica:
     AWS_REGION: ${aws_region}
     AWS_BUCKET: ${aws_bucket}
   links:
-    - easyappointments-data:db
+    - monica-data:db
 
 monica-data:
   image: mariadb:latest
