@@ -2,7 +2,7 @@
   name: 'Monica'
   version: 0.0.1
   description: 'The personal relationship manager'
-  uuid: easyappointments-0.0.1-1
+  uuid: monica-0.0.1-1
   questions:
     - variable: mysql_root_password
       label: 'MYSQL Root Password'
@@ -13,17 +13,50 @@
       label: 'MYSQL Database'
       type: string
       required: true
-      default: easyappointments
-    - variable: easyappointments_data
-      label: 'Easy!Appointments Data'
+      default: monica
+    - variable: app_url
+      label: 'App URL'
       type: string
       required: true
-      default: /volumes/easyappointments-data
-    - variable: base_url
-      label: 'Base URL'
+    - variable: mail_host
+      label: 'Mail Host'
       type: string
-      required: true
-      default: http://localhost:8888
+    - variable: mail_port
+      label: 'Mail Port'
+      type: string
+    - variable: mail_username
+      label: 'Mail Username'
+      type: string
+    - variable: mail_password
+      label: 'Mail Password'
+      type: string
+    - variable: mail_from_address
+      label: 'Mail From Address'
+      type: string
+    - variable: mail_from_name
+      label: 'Mail From Name'
+      type: string
+    - variable: app_default_timezone
+      label: 'App Default Timezone'
+      type: string
+    - variable: app_disabled_signup
+      label: 'App Disabled Signup'
+      type: string
+    - variable: app_disabled_signup
+      label: 'Google Analytics App ID'
+      type: string
+    - variable: aws_key
+      label: 'AWS Key'
+      type: string
+    - variable: aws_secret
+      label: 'AWS Secret'
+      type: string
+    - variable: aws_region
+      label: 'AWS Region'
+      type: string
+    - variable: aws_bucket
+      label: 'AWS Bucket'
+      type: string
 
 monica:
   scale: 1
