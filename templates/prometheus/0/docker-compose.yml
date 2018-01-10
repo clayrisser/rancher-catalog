@@ -25,7 +25,7 @@ services:
     image: infinityworks/prom-conf:19
     volumes:
       - /etc/prom-conf/
-    net: none
+    network_mode: none
 
   prometheus:
     tty: true
@@ -56,7 +56,7 @@ services:
     volume_driver: ${volume_driver}
     volumes:
       - {{.Stack.Name}}--grafana-data:/var/lib/grafana
-    net: none
+    network_mode: none
 
   grafana:
     tty: true
