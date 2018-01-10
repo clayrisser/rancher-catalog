@@ -1,3 +1,5 @@
+version: '2'
+
 .catalog:
   name: "prometheus"
   version: "0.0.1"
@@ -32,32 +34,33 @@
         - true
         - false
 
-prometheus:
-  scale: 1
-  health_check:
-    port: 9090
-    interval: 5000
-    unhealthy_threshold: 3
-    request_line: ''
-    healthy_threshold: 2
-    response_timeout: 5000
+services:
+  prometheus:
+    scale: 1
+    health_check:
+      port: 9090
+      interval: 5000
+      unhealthy_threshold: 3
+      request_line: ''
+      healthy_threshold: 2
+      response_timeout: 5000
 
-grafana:
-  scale: 1
-  health_check:
-    port: 3000
-    interval: 5000
-    unhealthy_threshold: 3
-    request_line: ''
-    healthy_threshold: 2
-    response_timeout: 5000
+  grafana:
+    scale: 1
+    health_check:
+      port: 3000
+      interval: 5000
+      unhealthy_threshold: 3
+      request_line: ''
+      healthy_threshold: 2
+      response_timeout: 5000
 
-prometheus-rancher-exporter:
-  scale: 1
-  health_check:
-    port: 9173
-    interval: 5000
-    unhealthy_threshold: 3
-    request_line: ''
-    healthy_threshold: 2
-    response_timeout: 5000
+  prometheus-rancher-exporter:
+    scale: 1
+    health_check:
+      port: 9173
+      interval: 5000
+      unhealthy_threshold: 3
+      request_line: ''
+      healthy_threshold: 2
+      response_timeout: 5000
