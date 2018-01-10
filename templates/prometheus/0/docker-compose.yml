@@ -18,63 +18,63 @@ node-exporter:
   stdin_open: true
 
 prom-conf:
-    tty: true
-    image: infinityworks/prom-conf:19
-    volumes:
-      - /etc/prom-conf/
-    net: none
+  tty: true
+  image: infinityworks/prom-conf:19
+  volumes:
+    - /etc/prom-conf/
+  net: none
 
 prometheus:
-    tty: true
-    image: prom/prometheus:v1.6.0
-    command: -alertmanager.url=http://alertmanager:9093 -config.file=/etc/prom-conf/prometheus.yml -storage.local.path=/prometheus -web.console.libraries=/etc/prometheus/console_libraries -web.console.templates=/etc/prometheus/consoles
+  tty: true
+  image: prom/prometheus:v1.6.0
+  command: -alertmanager.url=http://alertmanager:9093 -config.file=/etc/prom-conf/prometheus.yml -storage.local.path=/prometheus -web.console.libraries=/etc/prometheus/console_libraries -web.console.templates=/etc/prometheus/consoles
 {{- if eq .Values.enable_ports "true"}}
-    ports:
-      - 9090:9090
+  ports:
+    - 9090:9090
 {{- end}}
-    labels:
-      io.rancher.sidekicks: prom-conf
-    volume_driver: ${volume_driver}
-    volumes_from:
-      - prom-conf
-    volumes:
-      - {{.Stack.Name}}--prometheus-data:/prometheus
-    links:
+  labels:
+    io.rancher.sidekicks: prom-conf
+  volume_driver: ${volume_driver}
+  volumes_from:
+    - prom-conf
+  volumes:
+    - {{.Stack.Name}}--prometheus-data:/prometheus
+  links:
     - cadvisor:cadvisor
     - node-exporter:node-exporter
     - prometheus-rancher-exporter:prometheus-rancher-exporter
-    extra_hosts:
+  extra_hosts:
     - "rancher-server:${RANCHER_SERVER}"
 
 graf-db:
-    tty: true
-    image: infinityworks/graf-db:11
-    command: cat
-    volume_driver: ${volume_driver}
-    volumes:
-      - {{.Stack.Name}}--grafana-data:/var/lib/grafana
-    net: none
+  tty: true
+  image: infinityworks/graf-db:11
+  command: cat
+  volume_driver: ${volume_driver}
+  volumes:
+    - {{.Stack.Name}}--grafana-data:/var/lib/grafana
+  net: none
 
 grafana:
-    tty: true
-    image: grafana/grafana:4.2.0
-    environment:
-      - GF_USERS_ALLOW_SIGN_UP=${allow_signup}
+  tty: true
+  image: grafana/grafana:4.2.0
+  environment:
+    - GF_USERS_ALLOW_SIGN_UP=${allow_signup}
 {{- if eq .Values.enable_ports "true"}}
-    ports:
-      - 3000:3000
+  ports:
+    - 3000:3000
 {{- end}}
-    labels:
-      io.rancher.sidekicks: graf-db
-    volumes_from:
-       - graf-db
-    links:
-      - prometheus:prometheus
-      - prometheus-rancher-exporter:prometheus-rancher-exporter
+  labels:
+    io.rancher.sidekicks: graf-db
+  volumes_from:
+    - graf-db
+  links:
+    - prometheus:prometheus
+    - prometheus-rancher-exporter:prometheus-rancher-exporter
 
 prometheus-rancher-exporter:
-    tty: true
-    labels:
-      io.rancher.container.create_agent: true
-      io.rancher.container.agent.role: environment
-    image: infinityworks/prometheus-rancher-exporter:v0.22.52
+  tty: true
+  labels:
+    io.rancher.container.create_agent: true
+    io.rancher.container.agent.role: environment
+  image: infinityworks/prometheus-rancher-exporter:v0.22.52
