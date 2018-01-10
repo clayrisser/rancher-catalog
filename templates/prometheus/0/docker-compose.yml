@@ -21,7 +21,7 @@ services:
   prometheus:
     image: prom/prometheus:v1.6.0
     command: -alertmanager.url=http://alertmanager:9093 -config.file=/etc/prom-conf/prometheus.yml -storage.local.path=/prometheus -web.console.libraries=/etc/prometheus/console_libraries -web.console.templates=/etc/prometheus/consoles
-{{- if eq .Values.enable_ports true}}
+{{- if eq .Values.enable_ports "true"}}
     ports:
       - 9090:9090
 {{- end}}
@@ -51,7 +51,7 @@ services:
     image: grafana/grafana:4.2.0
     environment:
       - GF_USERS_ALLOW_SIGN_UP=${allow_signup}
-{{- if eq .Values.enable_ports true}}
+{{- if eq .Values.enable_ports "true"}}
     ports:
       - 3000:3000
 {{- end}}
