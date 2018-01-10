@@ -1,6 +1,4 @@
-version: '2'
-
-catalog:
+.catalog:
   name: "prometheus"
   version: "0.0.1"
   description: "Prometheus Monitoring Solution"
@@ -32,7 +30,7 @@ catalog:
       options:
         - true
         - false
-    - variable: enable_ports
+    - variable: allow_signup
       label: 'Allow Signup'
       type: enum
       required: true
@@ -41,33 +39,32 @@ catalog:
         - true
         - false
 
-services:
-  prometheus:
-    scale: 1
-    health_check:
-      port: 9090
-      interval: 5000
-      unhealthy_threshold: 3
-      request_line: ''
-      healthy_threshold: 2
-      response_timeout: 5000
+prometheus:
+  scale: 1
+  health_check:
+    port: 9090
+    interval: 5000
+    unhealthy_threshold: 3
+    request_line: ''
+    healthy_threshold: 2
+    response_timeout: 5000
 
-  grafana:
-    scale: 1
-    health_check:
-      port: 3000
-      interval: 5000
-      unhealthy_threshold: 3
-      request_line: ''
-      healthy_threshold: 2
-      response_timeout: 5000
+grafana:
+  scale: 1
+  health_check:
+    port: 3000
+    interval: 5000
+    unhealthy_threshold: 3
+    request_line: ''
+    healthy_threshold: 2
+    response_timeout: 5000
 
-  prometheus-rancher-exporter:
-    scale: 1
-    health_check:
-      port: 9173
-      interval: 5000
-      unhealthy_threshold: 3
-      request_line: ''
-      healthy_threshold: 2
-      response_timeout: 5000
+prometheus-rancher-exporter:
+  scale: 1
+  health_check:
+    port: 9173
+    interval: 5000
+    unhealthy_threshold: 3
+    request_line: ''
+    healthy_threshold: 2
+    response_timeout: 5000
