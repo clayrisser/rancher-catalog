@@ -1,23 +1,23 @@
 version: '2'
 
 catalog:
-  name: "prometheus"
-  version: "0.0.1"
-  description: "Prometheus Monitoring Solution"
+  name: prometheus
+  version: 0.0.1
+  description: 'Prometheus Monitoring Solution'
   uuid: prometheus
   minimum_rancher_version: v1.5.5
   questions:
-    - variable: "RANCHER_SERVER"
-      label: "Rancher Server"
-      description: "IP Address of the rancher server, no HTTP or slashes. This is only required for users that have enabled metrics to be exported by Rancher"
-      default: "0.0.0.0"
+    - variable: RANCHER_SERVER
+      label: 'Rancher Server'
+      description: 'IP Address of the rancher server, no HTTP or slashes. This is only required for users that have enabled metrics to be exported by Rancher'
+      default: 0.0.0.0
       required: false
-      type: "string"
-    - variable: "volume_driver"
-      description: "Volume driver to associate with this service."
+      type: string
+    - variable: volume_driver
+      description: 'Volume driver to associate with this service.'
       label: "Volume Driver"
       required: true
-      default: "rancher-nfs"
+      default: rancher-nfs
       type: enum
       options:
         - rancher-nfs
