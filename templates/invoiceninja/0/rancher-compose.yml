@@ -1,4 +1,6 @@
-.catalog:
+version: '2'
+
+catalog:
   name: InvoiceNinja
   version: 0.0.1
   description: 'Invoices, expenses & time-tracking built with Laravel'
@@ -20,7 +22,8 @@
       required: true
       default: /volumes/invoiceninja-data
 
-invoiceninja:
-  scale: 1
-invoiceninja-data:
-  scale: 1
+services:
+  invoiceninja:
+    scale: 1
+  invoiceninja-data:
+    scale: 1

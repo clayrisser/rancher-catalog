@@ -1,25 +1,28 @@
-invoiceninja:
-  image: moss/invoiceninja:latest
-  environment:
-    APP_DEBUG: false
-    APP_URL: http://localhost:8888
-    DB_TYPE: mysql
-    DB_DATABASE: ${mysql_database}
-    DB_USERNAME: root
-    DB_HOST: mysql
-    DB_PASSWORD: ${mysql_root_password}
-    APP_ENV: production
-    TRUSTED_PROXIES: 0.0.0.0/0
-  links:
-    - invoiceninja-data:db
+version: '2'
 
-invoiceninja-data:
-  image: mariadb:latest
-  environment:
-    MYSQL_ROOT_PASSWORD: ${mysql_root_password}
-    MYSQL_DATABASE: ${mysql_database}
-  tty: true
-  volumes:
-    - ${invoiceninja_data}:/var/lib/mysql
-  labels:
-    ident: true
+services:
+  invoiceninja:
+    image: moss/invoiceninja:latest
+    environment:
+      APP_DEBUG: false
+      APP_URL: http://localhost:8888
+      DB_TYPE: mysql
+      DB_DATABASE: ${mysql_database}
+      DB_USERNAME: root
+      DB_HOST: mysql
+      DB_PASSWORD: ${mysql_root_password}
+      APP_ENV: production
+      TRUSTED_PROXIES: 0.0.0.0/0
+    links:
+      - invoiceninja-data:db
+
+  invoiceninja-data:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: ${mysql_root_password}
+      MYSQL_DATABASE: ${mysql_database}
+    tty: true
+    volumes:
+      - ${invoiceninja_data}:/var/lib/mysql
+    labels:
+      ident: true
