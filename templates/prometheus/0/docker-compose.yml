@@ -2,6 +2,9 @@ version: '2'
 
 services:
   cadvisor:
+    labels:
+      io.rancher.scheduler.global: 'true'
+    tty: true
     image: google/cadvisor:latest
     stdin_open: true
     volumes:
@@ -11,16 +14,21 @@ services:
       - "/var/lib/docker/:/var/lib/docker:ro"
 
   node-exporter:
+    labels:
+      io.rancher.scheduler.global: 'true'
+    tty: true
     image: prom/node-exporter:latest
     stdin_open: true
 
   prom-conf:
+    tty: true
     image: infinityworks/prom-conf:19
     volumes:
       - /etc/prom-conf/
     network_mode: none
 
   prometheus:
+    tty: true
     image: prom/prometheus:v1.6.0
     command: -alertmanager.url=http://alertmanager:9093 -config.file=/etc/prom-conf/prometheus.yml -storage.local.path=/prometheus -web.console.libraries=/etc/prometheus/console_libraries -web.console.templates=/etc/prometheus/consoles
 {{- if eq .Values.enable_ports "true"}}
@@ -42,6 +50,7 @@ services:
       - "rancher-server:${RANCHER_SERVER}"
 
   graf-db:
+    tty: true
     image: infinityworks/graf-db:11
     command: cat
     volume_driver: ${volume_driver}
@@ -50,6 +59,7 @@ services:
     network_mode: none
 
   grafana:
+    tty: true
     image: grafana/grafana:4.2.0
     environment:
       - GF_USERS_ALLOW_SIGN_UP=${allow_signup}
@@ -66,6 +76,7 @@ services:
       - prometheus-rancher-exporter:prometheus-rancher-exporter
 
   prometheus-rancher-exporter:
+    tty: true
     labels:
       io.rancher.container.create_agent: true
       io.rancher.container.agent.role: environment
