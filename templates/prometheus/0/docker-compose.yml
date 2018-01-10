@@ -28,7 +28,7 @@ services:
     volumes_from:
       - prom-conf
     volumes:
-      - {{.Stack.Name}}--prometheus-data:/prometheus
+      - prometheus-data:/prometheus
     links:
       - cadvisor:cadvisor
       - node-exporter:node-exporter
@@ -40,7 +40,7 @@ services:
     image: infinityworks/graf-db:11
     command: cat
     volumes:
-      - {{.Stack.Name}}--grafana-data:/var/lib/grafana
+      - grafana-data:/var/lib/grafana
     network_mode: none
 
   grafana:
@@ -64,9 +64,9 @@ services:
     image: infinityworks/prometheus-rancher-exporter:v0.22.52
 
 volumes:
-  {{.Stack.Name}}--prometheus-data:
+  prometheus-data:
     external: true
     driver: ${volume_driver}
-  {{.Stack.Name}}--grafana-data:
+  grafana-data:
     external: true
     driver: ${volume_driver}
