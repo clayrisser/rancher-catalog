@@ -27,8 +27,9 @@ services:
       io.rancher.sidekicks: prom-conf
     volumes_from:
       - prom-conf
+    volume_driver: ${volume_driver}
     volumes:
-      - prometheus-data:/prometheus
+      - {{.Stack.Name}}--prometheus-data:/prometheus
     links:
       - cadvisor:cadvisor
       - node-exporter:node-exporter
@@ -39,8 +40,9 @@ services:
   graf-db:
     image: infinityworks/graf-db:11
     command: cat
+    volume_driver: ${volume_driver}
     volumes:
-      - grafana-data:/var/lib/grafana
+      - {{.Stack.Name}}--grafana-data:/var/lib/grafana
     network_mode: none
 
   grafana:
@@ -62,11 +64,3 @@ services:
       io.rancher.container.create_agent: true
       io.rancher.container.agent.role: environment
     image: infinityworks/prometheus-rancher-exporter:v0.22.52
-
-volumes:
-  prometheus-data:
-    external: true
-    driver: ${volume_driver}
-  grafana-data:
-    external: true
-    driver: ${volume_driver}
