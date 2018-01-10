@@ -54,7 +54,7 @@ services:
     command: cat
     volumes:
       - {{.Stack.Name}}--grafana-data:/var/lib/grafana
-    net: none
+    network_mode: none
 
   grafana:
     tty: true
