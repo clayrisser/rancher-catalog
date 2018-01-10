@@ -1,6 +1,6 @@
 version: '2'
 
-.catalog:
+catalog:
   name: "prometheus"
   version: "0.0.1"
   description: "Prometheus Monitoring Solution"
