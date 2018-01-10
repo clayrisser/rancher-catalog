@@ -67,6 +67,6 @@ volumes:
   {{.Stack.Name}}--prometheus-data:
     external: true
     driver: ${volume_driver}
-  {{.Stack.Name}}--prometheus-data:
+  {{.Stack.Name}}--grafana-data:
     external: true
     driver: ${volume_driver}

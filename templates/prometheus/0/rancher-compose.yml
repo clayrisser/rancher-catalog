@@ -20,10 +20,10 @@ catalog:
       default: "rancher-nfs"
       type: enum
       options:
-        - local
         - rancher-nfs
         - rancher-efs
         - rancher-ebs
+        - local
     - variable: enable_ports
       label: 'Enable Ports'
       type: enum
