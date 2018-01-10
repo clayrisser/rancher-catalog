@@ -14,7 +14,6 @@
     - variable: external_driver
       label: 'External Driver'
       type: string
-      required: true
       default: rancher-nfs
     - variable: enable_ports
       label: 'Enable Ports'
