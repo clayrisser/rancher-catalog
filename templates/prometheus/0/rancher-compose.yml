@@ -13,10 +13,17 @@ catalog:
       default: "0.0.0.0"
       required: false
       type: "string"
-    - variable: external_driver
-      label: 'External Driver'
-      type: string
-      default: rancher-nfs
+    - variable: "volume_driver"
+      description: "Volume driver to associate with this service."
+      label: "Volume Driver"
+      required: true
+      default: "rancher-nfs"
+      type: enum
+      options:
+        - local
+        - rancher-nfs
+        - rancher-efs
+        - rancher-ebs
     - variable: enable_ports
       label: 'Enable Ports'
       type: enum

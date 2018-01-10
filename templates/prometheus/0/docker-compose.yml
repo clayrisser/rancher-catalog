@@ -63,12 +63,10 @@ services:
       io.rancher.container.agent.role: environment
     image: infinityworks/prometheus-rancher-exporter:v0.22.52
 
-{{- if (.Values.external_driver)}}
 volumes:
   {{.Stack.Name}}--prometheus-data:
     external: true
-    driver: ${external_driver}
+    driver: ${volume_driver}
   {{.Stack.Name}}--prometheus-data:
     external: true
-    driver: ${external_driver}
-{{- end}}
+    driver: ${volume_driver}
