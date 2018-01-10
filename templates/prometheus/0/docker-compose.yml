@@ -2,6 +2,8 @@ version: '2'
 
 services:
   cadvisor:
+    labels:
+      io.rancher.scheduler.global: 'true'
     image: google/cadvisor:latest
     stdin_open: true
     volumes:
@@ -11,6 +13,8 @@ services:
       - "/var/lib/docker/:/var/lib/docker:ro"
 
   node-exporter:
+    labels:
+      io.rancher.scheduler.global: 'true'
     image: prom/node-exporter:latest
     stdin_open: true
 
