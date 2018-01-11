@@ -3,6 +3,8 @@ version: '2'
 services:
   nginx:
     image: jamrizzi/tao:nginx
+    volumes_from:
+      - tao
     links:
       - tao:tao
 
