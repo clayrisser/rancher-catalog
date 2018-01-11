@@ -7,6 +7,7 @@ services:
       - tao
     links:
       - tao:tao
+      - mariadb:data
     labels:
       io.rancher.sidekicks: tao
 
@@ -24,8 +25,6 @@ services:
       MYSQL_USER: tao
       MYSQL_PASSWORD: ${database_password}
       MYSQL_DATABASE: tao
-    links:
-      - mariadb:data
     volume_driver: ${volume_driver}
     volumes:
       - {{.Stack.Name}}--tao-data:/var/lib/mysql
