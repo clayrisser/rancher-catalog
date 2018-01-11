@@ -13,7 +13,7 @@ services:
   tao:
     image: alroniks/tao:latest
     links:
-      - mariadb:data
+      - data:mariadb
 
   mariadb:
     image: mariadb:10.2.12
