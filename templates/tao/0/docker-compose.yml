@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  tao:
+    image: alroniks/tao:latest
+    links:
+      mariadb:data
+
+  mariadb:
+    image: mariadb:10.2.12
+{{- if eq .Values.enable_ports "true"}}
+    ports:
+      - 9000:9000
+{{- end}}
+    environment:
+      MYSQL_USER: tao
+      MYSQL_PASSWORD: ${database_password}
+      MYSQL_DATABASE: tao
+    volume_driver: ${volume_driver}
+    volumes:
+      - {{.Stack.Name}}--tao-data:/var/lib/mysql
