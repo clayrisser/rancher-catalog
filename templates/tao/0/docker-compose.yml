@@ -1,6 +1,11 @@
 version: '2'
 
 services:
+  nginx:
+    image: jamrizzi/tao:nginx
+    links:
+      - tao:tao
+
   tao:
     image: alroniks/tao:latest
     links:
