@@ -42,6 +42,16 @@ services:
       healthy_threshold: 2
       response_timeout: 5000
 
+  nginx:
+    scale: 1
+    health_check:
+      port: 80
+      interval: 5000
+      unhealthy_threshold: 3
+      request_line: ''
+      healthy_threshold: 2
+      response_timeout: 5000
+
   mariadb:
     scale: 1
     health_check:
