@@ -12,7 +12,7 @@ services:
       io.rancher.sidekicks: tao
 
   tao:
-    image: alroniks/tao:latest
+    image: jamrizzi/tao:latest
      
   mariadb:
     image: mariadb:10.2.12
