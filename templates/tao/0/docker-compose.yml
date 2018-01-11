@@ -12,9 +12,7 @@ services:
 
   tao:
     image: alroniks/tao:latest
-    links:
-      - mariadb:data
-      
+     
   mariadb:
     image: mariadb:10.2.12
 {{- if eq .Values.enable_ports "true"}}
@@ -26,6 +24,8 @@ services:
       MYSQL_USER: tao
       MYSQL_PASSWORD: ${database_password}
       MYSQL_DATABASE: tao
+    links:
+      - mariadb:data
     volume_driver: ${volume_driver}
     volumes:
       - {{.Stack.Name}}--tao-data:/var/lib/mysql
