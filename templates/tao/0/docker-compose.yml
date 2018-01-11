@@ -13,8 +13,8 @@ services:
   tao:
     image: alroniks/tao:latest
     links:
-      - data:mariadb
-
+      - mariadb:data
+      
   mariadb:
     image: mariadb:10.2.12
 {{- if eq .Values.enable_ports "true"}}
