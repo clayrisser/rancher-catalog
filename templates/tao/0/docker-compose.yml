@@ -13,6 +13,7 @@ services:
       - 9000:9000
 {{- end}}
     environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
       MYSQL_USER: tao
       MYSQL_PASSWORD: ${database_password}
       MYSQL_DATABASE: tao
