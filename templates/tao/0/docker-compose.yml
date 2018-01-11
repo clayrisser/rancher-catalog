@@ -7,6 +7,8 @@ services:
       - tao
     links:
       - tao:tao
+    labels:
+      io.rancher.sidekicks: tao
 
   tao:
     image: alroniks/tao:latest
