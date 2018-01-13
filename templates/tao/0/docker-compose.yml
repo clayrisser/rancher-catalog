@@ -1,25 +1,17 @@
 version: '2'
 
 services:
-  nginx:
-    image: jamrizzi/tao:nginx
-    volumes_from:
-      - tao
-    links:
-      - tao:tao
-      - mariadb:data
-    labels:
-      io.rancher.sidekicks: tao
-
   tao:
-    image: jamrizzi/tao:latest
-     
-  mariadb:
-    image: mariadb:10.2.12
+    image: jamrizzi/tao:stable
+    links:
+      - mariadb:database
 {{- if eq .Values.enable_ports "true"}}
     ports:
-      - 9000:9000
+      - 8080:8080
 {{- end}}
+
+  mariadb:
+    image: mariadb:10.2.12
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: true
       MYSQL_USER: tao
