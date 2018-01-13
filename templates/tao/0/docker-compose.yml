@@ -13,10 +13,10 @@ services:
   mariadb:
     image: mariadb:10.2.12
     environment:
-      MYSQL_RANDOM_ROOT_PASSWORD: true
-      MYSQL_USER: tao
-      MYSQL_PASSWORD: ${database_password}
-      MYSQL_DATABASE: tao
+      - MYSQL_RANDOM_ROOT_PASSWORD=true
+      - MYSQL_USER=tao
+      - MYSQL_PASSWORD=${database_password}
+      - MYSQL_DATABASE=tao
     volume_driver: ${volume_driver}
     volumes:
       - {{.Stack.Name}}--tao-data:/var/lib/mysql
