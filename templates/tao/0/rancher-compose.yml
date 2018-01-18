@@ -50,7 +50,7 @@ catalog:
       type: string
     - variable: root_url
       label: 'Root Url'
-      default: http://localhost:8080
+      default: http://localhost
       required: false
       type: string
     - variable: user_firstname
