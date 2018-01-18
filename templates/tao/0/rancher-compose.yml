@@ -68,7 +68,7 @@ catalog:
     - variable: user_password
       label: 'User Password'
       required: true
-      type: string
+      type: password
     - variable: timezone
       label: Timezone
       default: UTC
