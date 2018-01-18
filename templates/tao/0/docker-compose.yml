@@ -2,7 +2,7 @@ version: '2'
 
 services:
   tao:
-    image: jamrizzi/tao:3.2
+    image: jamrizzi/tao:3.2.0
     links:
       - mariadb:database
 {{- if eq .Values.enable_ports "true"}}
