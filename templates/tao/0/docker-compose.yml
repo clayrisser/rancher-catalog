@@ -2,13 +2,29 @@ version: '2'
 
 services:
   tao:
-    image: jamrizzi/tao:stable
+    image: jamrizzi/tao:3.2.0
     links:
       - mariadb:database
 {{- if eq .Values.enable_ports "true"}}
     ports:
       - 8080:8080
 {{- end}}
+    environment:
+      - DATABASE_HOST=database
+      - DATABASE_NAME=tao
+      - DATABASE_PASSWORD=${database_password}
+      - DATABASE_USER=tao
+      - INSTANCE_NAME=tao
+      - OPERATED_BY_NAME=${operated_by_name}
+      - OPERATED_BY_EMAIL=${operated_by_email}
+      - ROOT_URL=${root_url}
+      - USER_FIRSTNAME=${user_firstname}
+      - USER_LASTNAME=${user_lastname}
+      - USER_EMAIL=${user_email}
+      - USER_USERNAME=${user_username}
+      - USER_PASSWORD=${user_password}
+      - MANUEL_SETUP=${manuel_setup}
+      - TZ=${timezone}
 
   mariadb:
     image: mariadb:10.2.12

@@ -30,6 +30,50 @@ catalog:
       options:
         - true
         - false
+    - variable: manuel_setup
+      label: 'Manuel Setup'
+      type: enum
+      required: true
+      default: false
+      options:
+        - true
+        - false
+    - variable: operated_by_name
+      label: 'Operated By Name'
+      default: 'JamRizzi Technologies'
+      required: false
+      type: string
+    - variable: operated_by_email
+      label: 'Operated By Email'
+      default: email@example.com
+      required: false
+      type: string
+    - variable: root_url
+      label: 'Root Url'
+      default: http://localhost:8080
+      required: false
+      type: string
+    - variable: user_firstname
+      label: 'User Firstname'
+      required: true
+      type: string
+    - variable: user_lastname
+      label: 'User Lastname'
+      required: true
+      type: string
+    - variable: user_email
+      label: 'User Email'
+      required: true
+      type: string
+    - variable: user_password
+      label: 'User Password'
+      required: true
+      type: string
+    - variable: timezone
+      label: Timezone
+      default: UTC
+      required: false
+      type: string
 
 services:
   tao:
