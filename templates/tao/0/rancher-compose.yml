@@ -41,38 +41,42 @@ catalog:
     - variable: operated_by_name
       label: 'Operated By Name'
       default: 'JamRizzi Technologies'
-      required: false
+      required: true
       type: string
     - variable: operated_by_email
       label: 'Operated By Email'
       default: email@example.com
-      required: false
+      required: true
       type: string
     - variable: root_url
       label: 'Root Url'
       default: http://localhost
-      required: false
+      required: true
       type: string
     - variable: user_firstname
       label: 'User Firstname'
+      default: Jam
       required: true
       type: string
     - variable: user_lastname
       label: 'User Lastname'
+      default: Risser
       required: true
       type: string
     - variable: user_email
       label: 'User Email'
+      default: email@example.com
       required: true
       type: string
     - variable: user_password
       label: 'User Password'
+      default: hellodocker
       required: true
       type: password
     - variable: timezone
       label: Timezone
       default: UTC
-      required: false
+      required: true
       type: string
 
 services:
