@@ -50,7 +50,7 @@ catalog:
       type: string
     - variable: root_url
       label: 'Root Url'
-      default: http://localhost
+      default: http://localhost:8080
       required: true
       type: string
     - variable: user_firstname
@@ -88,7 +88,7 @@ services:
   tao:
     scale: 1
     health_check:
-      port: 80
+      port: 8080
       interval: 5000
       unhealthy_threshold: 3
       request_line: ''
