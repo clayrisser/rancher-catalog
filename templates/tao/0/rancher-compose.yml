@@ -63,6 +63,11 @@ catalog:
       default: Risser
       required: true
       type: string
+    - variable: user_username
+      label: 'User Username'
+      default: admin
+      required: true
+      type: string
     - variable: user_email
       label: 'User Email'
       default: email@example.com
