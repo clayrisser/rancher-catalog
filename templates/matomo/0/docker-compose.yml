@@ -2,7 +2,7 @@ version: '2'
 
 services:
   matomo:
-    image: jamrizzi/matomo:3.2.0
+    image: crazymax/matomo:3.3.0
     links:
       - mariadb:database
       - redis:redis
