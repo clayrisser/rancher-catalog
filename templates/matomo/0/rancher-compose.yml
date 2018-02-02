@@ -1,0 +1,73 @@
+version: '2'
+
+catalog:
+  name: matomo
+  version: 0.0.1
+  description: 'The leading open-source analytics platform that gives you more than just powerful analytics'
+  uuid: prometheus
+  minimum_rancher_version: v1.5.5
+  questions:
+    - variable: database_password
+      label: 'Database Password'
+      default: hellodocker
+      required: false
+      type: password
+    - variable: volume_driver
+      label: 'Volume Driver'
+      required: true
+      default: rancher-nfs
+      type: enum
+      options:
+        - rancher-nfs
+        - rancher-efs
+        - rancher-ebs
+        - local
+    - variable: enable_ports
+      label: 'Enable Ports'
+      type: enum
+      required: true
+      default: false
+      options:
+        - true
+        - false
+    - variable: root_url
+      label: 'Root Url'
+      default: http://localhost:8080
+      required: true
+      type: string
+    - variable: timezone
+      label: Timezone
+      default: UTC
+      required: true
+      type: string
+
+services:
+  matomo:
+    scale: 1
+    health_check:
+      port: 80
+      interval: 5000
+      unhealthy_threshold: 3
+      request_line: ''
+      healthy_threshold: 2
+      response_timeout: 5000
+
+  redis:
+    scale: 1
+    health_check:
+      port: 6379
+      interval: 5000
+      unhealthy_threshold: 3
+      request_line: ''
+      healthy_threshold: 2
+      response_timeout: 5000
+
+  mariadb:
+    scale: 1
+    health_check:
+      port: 3306
+      interval: 5000
+      unhealthy_threshold: 3
+      request_line: ''
+      healthy_threshold: 2
+      response_timeout: 5000

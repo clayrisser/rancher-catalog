@@ -1,0 +1,39 @@
+version: '2'
+
+services:
+  matomo:
+    image: jamrizzi/matomo:3.2.0
+    links:
+      - mariadb:db
+      - redis:redis
+{{- if eq .Values.enable_ports "true"}}
+    ports:
+      - 80:80
+{{- end}}
+    environment:
+      - SSMTP_HOST=${ssmtp_host}
+      - SSMTP_PORT=${ssmtp_port}
+      - SSMTP_HOSTNAME=${ssmtp_hostname}
+      - SSMTP_USER=${ssmtp_user}
+      - SSMTP_PASSWORD=${ssmpt_password}
+      - SSMTP_TLS=${ssmtp_tls}
+      - MANUEL_SETUP=${manuel_setup}
+      - TZ=${timezone}
+    volumes:
+      - {{.Stack.Name}}--matomo-content:/data
+
+  redis:
+    image: redis
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+
+  mariadb:
+    image: mariadb:10.2.12
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=true
+      - MYSQL_USER=matomo
+      - MYSQL_PASSWORD=${database_password}
+      - MYSQL_DATABASE=matomo
+    volume_driver: ${volume_driver}
+    volumes:
+      - {{.Stack.Name}}--matomo-data:/var/lib/mysql
