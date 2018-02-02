@@ -11,13 +11,13 @@ services:
       - 80:80
 {{- end}}
     environment:
-      - SSMTP_HOST=${ssmtp_host}
-      - SSMTP_PORT=${ssmtp_port}
-      - SSMTP_HOSTNAME=${ssmtp_hostname}
-      - SSMTP_USER=${ssmtp_user}
-      - SSMTP_PASSWORD=${ssmpt_password}
-      - SSMTP_TLS=${ssmtp_tls}
-      - MANUEL_SETUP=${manuel_setup}
+      - SSMTP_HOST=${smtp_host}
+      - SSMTP_PORT=${smtp_port}
+      - SSMTP_HOSTNAME=${smtp_hostname}
+      - SSMTP_USER=${smtp_user}
+      - SSMTP_PASSWORD=${smpt_password}
+      - SSMTP_TLS=${smtp_tls}
+      - SITE_URL=${root_url}
       - TZ=${timezone}
     volumes:
       - {{.Stack.Name}}--matomo-content:/data

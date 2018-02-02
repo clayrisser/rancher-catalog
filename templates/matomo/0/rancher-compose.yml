@@ -30,9 +30,39 @@ catalog:
       options:
         - true
         - false
+    - variable: smtp_host
+      label: 'SMTP Host'
+      default: ""
+      required: false
+      type: string
+    - variable: smtp_port
+      label: 'SMTP Port'
+      default: ""
+      required: false
+      type: string
+    - variable: smtp_hostname
+      label: 'SMTP Hostname'
+      default: ""
+      required: false
+      type: string
+    - variable: smtp_user
+      label: 'SMTP User'
+      default: ""
+      required: false
+      type: string
+    - variable: smtp_password
+      label: 'SMTP Password'
+      default: ""
+      required: false
+      type: string
+    - variable: smtp_tls
+      label: 'SMTP TLS'
+      default: ""
+      required: false
+      type: string
     - variable: root_url
       label: 'Root Url'
-      default: http://localhost:8080
+      default: http://localhost
       required: true
       type: string
     - variable: timezone
