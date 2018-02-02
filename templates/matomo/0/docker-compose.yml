@@ -4,7 +4,7 @@ services:
   matomo:
     image: jamrizzi/matomo:3.2.0
     links:
-      - mariadb:db
+      - mariadb:database
       - redis:redis
 {{- if eq .Values.enable_ports "true"}}
     ports:
