@@ -1,0 +1,82 @@
+version: '2'
+
+catalog:
+  name: isso
+  version: 0.0.1
+  description: 'A commenting server'
+  uuid: prometheus
+  minimum_rancher_version: v1.5.5
+  questions:
+    - variable: database_password
+      label: 'Database Password'
+      default: hellodocker
+      required: false
+      type: password
+    - variable: volume_driver
+      label: 'Volume Driver'
+      required: true
+      default: rancher-nfs
+      type: enum
+      options:
+        - rancher-nfs
+        - rancher-efs
+        - rancher-ebs
+        - local
+    - variable: enable_ports
+      label: 'Enable Ports'
+      type: enum
+      required: true
+      default: false
+      options:
+        - true
+        - false
+    - variable: isso_host
+      label: 'Isso Host'
+      default: ""
+      required: true
+      type: string
+    - variable: isso_name
+      label: 'Isso Name'
+      default: "Isso"
+      required: true
+      type: string
+    - variable: isso_max_age
+      label: 'Isso Max Age'
+      default: "30m"
+      required: true
+      type: string
+    - variable: isso_reply_to_self
+      label: 'Isso Reply to Self'
+      type: enum
+      required: true
+      default: false
+      options:
+        - true
+        - false
+    - variable: isso_require_email
+      label: 'Isso Require Email'
+      type: enum
+      required: true
+      default: false
+      options:
+        - true
+        - false
+    - variable: isso_require_author
+      label: 'Isso Require Author'
+      type: enum
+      required: true
+      default: false
+      options:
+        - true
+        - false
+
+services:
+  isso:
+    scale: 1
+    health_check:
+      port: 80
+      interval: 5000
+      unhealthy_threshold: 3
+      request_line: ''
+      healthy_threshold: 2
+      response_timeout: 5000

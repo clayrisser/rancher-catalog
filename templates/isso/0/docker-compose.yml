@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  isso:
+    image: sheogorath/isso-docker:0.10.6
+    links:
+      - mariadb:database
+{{- if eq .Values.enable_ports "true"}}
+    ports:
+      - 80:80
+{{- end}}
+    environment:
+      - ISSO_HOST=${isso_host}
+      - ISSO_NAME=${isso_name}
+      - ISSO_MAX_AGE=${isso_max_age}
+      - ISSO_REPLY_TO_SELF=${isso_reply_to_self}
+      - ISSO_REQUIRE_EMAIL=${isso_require_email}
+      - ISSO_REQUIRE_AUTHOR=${isso_require_author}
+    volume_driver: ${volume_driver}
+    volumes:
+      - {{.Stack.Name}}--isso-data:/data
