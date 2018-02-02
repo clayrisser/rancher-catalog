@@ -19,13 +19,9 @@ services:
       - SSMTP_TLS=${smtp_tls}
       - SITE_URL=${root_url}
       - TZ=${timezone}
-    volumes:
-      - {{.Stack.Name}}--matomo-content:/data
 
   redis:
     image: redis
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
 
   mariadb:
     image: mariadb:10.2.12
