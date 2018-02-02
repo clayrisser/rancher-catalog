@@ -37,12 +37,12 @@ catalog:
       type: string
     - variable: isso_name
       label: 'Isso Name'
-      default: "Isso"
+      default: Comments
       required: true
       type: string
     - variable: isso_max_age
       label: 'Isso Max Age'
-      default: "30m"
+      default: 30m
       required: true
       type: string
     - variable: isso_reply_to_self
