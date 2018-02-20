@@ -1,0 +1,37 @@
+version: '2'
+
+catalog:
+  name: taiga
+  version: 0.0.1
+  description: 'Project management platform for agile developers'
+  uuid: taiga
+  minimum_rancher_version: v1.5.5
+  questions:
+    - variable: database_password
+      label: 'Database Password'
+      default: hellodocker
+      required: false
+      type: password
+    - variable: volume_driver
+      label: 'Volume Driver'
+      required: true
+      default: rancher-nfs
+      type: enum
+      options:
+        - rancher-nfs
+        - rancher-efs
+        - rancher-ebs
+        - local
+    - variable: enable_ports
+      label: 'Enable Ports'
+      type: enum
+      required: true
+      default: false
+      options:
+        - true
+        - false
+    - variable: hostname
+      label: 'Hostname'
+      default: http://localhost
+      required: true
+      type: string
