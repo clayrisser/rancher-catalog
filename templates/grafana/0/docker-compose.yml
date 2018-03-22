@@ -58,6 +58,8 @@ graf-db:
 grafana:
   tty: true
   image: grafana/grafana:5.0.0
+  environment:
+    - GF_USERS_ALLOW_SIGN_UP=false
 {{- if eq .Values.enable_ports "true"}}
   ports:
     - 3000:3000
