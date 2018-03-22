@@ -1,0 +1,5 @@
+name: grafana
+description: |
+  Data visualization and monitoring with Prometheus integration
+version: 0.0.0
+category: Monitoring
