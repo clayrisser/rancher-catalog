@@ -28,6 +28,14 @@
     options:
       - true
       - false
+  - variable: store_prometheus
+    label: 'Store Prometheus'
+    type: enum
+    required: true
+    default: false
+    options:
+      - true
+      - false
 
 prometheus:
   scale: 1
