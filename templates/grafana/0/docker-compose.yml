@@ -36,9 +36,9 @@ prometheus:
     io.rancher.sidekicks: prom-conf
   volumes_from:
     - prom-conf
-  volume_driver: ${volume_driver}
-  volumes:
-    - {{.Stack.Name}}--prometheus-data:/prometheus
+  # volume_driver: ${volume_driver}
+  # volumes:
+  #   - {{.Stack.Name}}--prometheus-data:/prometheus
   links:
     - cadvisor:cadvisor
     - node-exporter:node-exporter
