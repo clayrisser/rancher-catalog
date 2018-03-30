@@ -11,24 +11,17 @@
     default: "0.0.0.0"
     required: false
     type: "string"
-  - variable: volume_driver
-    label: 'Volume Driver'
+  - variable: "VOLUME_DRIVER"
+    description: "The VOLUME driver to associate with this server"
+    label: "VOLUME Driver"
     required: true
-    default: rancher-nfs
+    default: "local"
     type: enum
     options:
+      - local
       - rancher-nfs
       - rancher-efs
       - rancher-ebs
-      - local
-  - variable: enable_ports
-    label: 'Enable Ports'
-    type: enum
-    required: true
-    default: false
-    options:
-      - true
-      - false
 
 prometheus:
   scale: 1
