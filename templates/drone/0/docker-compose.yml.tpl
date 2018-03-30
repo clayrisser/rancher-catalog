@@ -6,6 +6,7 @@ services:
     environment:
       DRONE_SERVER: ${drone_server}
       DRONE_SECRET: ${drone_secret}
+      DOCKER_API_VERSION: 1.24
 {{- if (.Values.http_proxy)}}
       HTTP_PROXY: ${http_proxy}
       http_proxy: ${http_proxy}
