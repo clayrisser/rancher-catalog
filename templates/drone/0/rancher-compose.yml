@@ -155,6 +155,25 @@ catalog:
       required: true
       default: "drone_lb=true"
       type: string
+    - variable: volume_driver
+      label: 'Volume Driver'
+      required: true
+      default: rancher-nfs
+      type: enum
+      options:
+        - rancher-nfs
+        - rancher-efs
+        - rancher-ebs
+        - local
+    - variable: enable_ports
+      label: 'Enable Ports'
+      type: enum
+      required: true
+      default: false
+      options:
+        - true
+        - false
+
 services:
   agent:
     scale: ${agent_scale}

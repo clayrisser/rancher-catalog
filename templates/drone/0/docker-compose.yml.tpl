@@ -1,4 +1,5 @@
 version: '2'
+
 services:
   agent:
     image: drone/agent:${drone_version}
@@ -27,8 +28,13 @@ services:
     labels:
       io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
       io.rancher.container.hostname_override: container_name
+
   server:
     image: drone/drone:${drone_version}
+{{- if eq .Values.enable_ports "true"}}
+    ports:
+      - 8000:8000
+{{- end}}
     environment:
       DRONE_HOST: ${drone_host}
       GIN_MODE: ${gin_mode}
@@ -94,6 +100,7 @@ services:
       io.rancher.sidekicks: server-volume
     volumes_from:
       - server-volume
+
   server-volume:
     image: rawmind/alpine-volume:0.0.2-1
     environment:
@@ -101,17 +108,11 @@ services:
       SERVICE_UID: '0'
       SERVICE_VOLUME: /var/lib/drone
     network_mode: none
+    volume_driver: ${volume_driver}
     volumes:
-      - /var/lib/drone
+      - {{.Stack.Name}}--tao-data:/var/lib/drone
     labels:
       io.rancher.container.start_once: 'true'
       io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
       io.rancher.container.hostname_override: container_name
 {{- end}}
-  lb:
-    image: rancher/lb-service-haproxy:v0.7.15
-    ports:
-      - ${host_port}:${host_port}
-    labels:
-      io.rancher.scheduler.global: 'true'
-      io.rancher.scheduler.affinity:host_label_soft: ${drone_lb_host_label}
