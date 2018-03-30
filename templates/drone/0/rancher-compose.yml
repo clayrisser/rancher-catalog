@@ -11,12 +11,6 @@ catalog:
       description: Intended URL Drone will be hosted on, e.g. http://drone.mycompany.com.
       required: true
       type: string
-    - variable: host_port
-      label: Drone Server Host Port
-      description: Public port that will be exposed on service creation.
-      required: true
-      default: 8000
-      type: int
     - variable: agent_scale
       label: Drone Agent Scale
       description: Drone agent scale to deploy
