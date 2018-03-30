@@ -110,7 +110,7 @@ services:
     network_mode: none
     volume_driver: ${volume_driver}
     volumes:
-      - {{.Stack.Name}}--tao-data:/var/lib/drone
+      - {{.Stack.Name}}--drone-data:/var/lib/drone
     labels:
       io.rancher.container.start_once: 'true'
       io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
