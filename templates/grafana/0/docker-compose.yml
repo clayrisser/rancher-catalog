@@ -38,7 +38,7 @@ prometheus:
     - prom-conf
   volume_driver: ${volume_driver}
   volumes:
-    - {{.Stack.Name}}--prometheus-data:/prometheus:nocopy
+    - {{.Stack.Name}}--prometheus-data:/prometheus
   links:
     - cadvisor:cadvisor
     - node-exporter:node-exporter
@@ -52,7 +52,7 @@ graf-db:
   command: cat
   volume_driver: ${volume_driver}
   volumes:
-    - {{.Stack.Name}}--graf-db-data:/var/lib/grafana:nocopy
+    - {{.Stack.Name}}--graf-db-data:/var/lib/grafana
   net: none
 
 grafana:
