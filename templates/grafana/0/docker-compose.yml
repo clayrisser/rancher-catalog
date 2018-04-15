@@ -49,7 +49,7 @@ prometheus:
 
 graf-db:
   tty: true
-  image: infinityworks/graf-db:11
+  image: codejamninja/graf-db:latest
   command: cat
   volume_driver: ${volume_driver}
   volumes:
@@ -60,7 +60,7 @@ grafana:
   tty: true
   image: grafana/grafana:5.0.0
   environment:
-    - GF_USERS_ALLOW_SIGN_UP=true
+    - GF_USERS_ALLOW_SIGN_UP=false
 {{- if eq .Values.enable_ports "true"}}
   ports:
     - 3000:3000
