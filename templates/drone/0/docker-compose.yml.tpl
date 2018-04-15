@@ -14,7 +14,6 @@ services:
 {{- if (.Values.https_proxy)}}
       HTTPS_PROXY: ${https_proxy}
       https_proxy: ${https_proxy}
-      DOCKER_API_VERSION: 1.24
 {{- end}}
 {{- if (.Values.no_proxy)}}
       NO_PROXY: ${no_proxy}
