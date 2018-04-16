@@ -45,13 +45,6 @@ catalog:
       required: true
       default: "sonar"
       type: "password"
-    - variable: "postgres_link"
-      description: |
-        Optional external postgres service to use.
-      label: "Postgres stack/service"
-      default: ""
-      required: false
-      type: "service"
     - variable: volume_driver
       label: 'Volume Driver'
       required: true

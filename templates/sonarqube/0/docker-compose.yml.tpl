@@ -30,6 +30,8 @@ services:
       SONARQUBE_JDBC_URL: jdbc:postgresql://db:${postgres_port}/${postgres_db}
     volumes_from:
       - sonarqube-storage
+    links:
+      - db:db
 
   db:
     labels:
