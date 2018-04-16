@@ -7,9 +7,9 @@ services:
       io.rancher.container.hostname_override: container_name
       io.rancher.container.start_once: true
     environment:
-      - SERVICE_UID=0
-      - SERVICE_GID=0
-      - SERVICE_VOLUME=/opt/sonarqube/extensions/plugins
+      SERVICE_UID: 0
+      SERVICE_GID: 0
+      SERVICE_VOLUME: /opt/sonarqube/extensions/plugins
     volume_driver: ${volume_driver}
     volumes:
       - {{.Stack.Name}}--sonarqube-plugins:/opt/sonarqube/extensions/plugins
@@ -44,9 +44,9 @@ services:
       io.rancher.sidekicks: db-storage
     image: postgres:9.6.3-alpine
     environment:
-      POSTGRES_USER:  ${postgres_user}
-      POSTGRES_PASSWORD:  ${postgres_password}
-      POSTGRES_DB:  ${postgres_db}
+      POSTGRES_USER: ${postgres_user}
+      POSTGRES_PASSWORD: ${postgres_password}
+      POSTGRES_DB: ${postgres_db}
     volumes_from:
       - db-storage
 
@@ -61,5 +61,5 @@ services:
       - SERVICE_VOLUME=/var/lib/postgresql
     volume_driver: ${volume_driver}
     volumes:
-      - {{.Stack.Name}}--sonarqube-data:/opt/sonarqube/extensions/plugins
+      - {{.Stack.Name}}--sonarqube-data:/var/lib/postgresql
     image: rawmind/alpine-volume:0.0.2-1
