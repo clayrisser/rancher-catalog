@@ -14,11 +14,11 @@ services:
     # volumes:
     #   - {{.Stack.Name}}--sonarqube-plugins:/opt/sonarqube/extensions/plugins
 
-#   sonarqube:
-#     labels:
-#       io.rancher.container.hostname_override: container_name
-#       io.rancher.sidekicks: sonarqube-storage
-#     image: sonarqube:${docker_version}
+  sonarqube:
+    labels:
+      io.rancher.container.hostname_override: container_name
+      io.rancher.sidekicks: sonarqube-storage
+    image: sonarqube:${docker_version}
 # {{- if eq .Values.enable_ports "true"}}
 #     ports:
 #       - 9000:9000
