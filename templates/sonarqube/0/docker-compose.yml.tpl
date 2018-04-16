@@ -2,7 +2,6 @@ version: '2'
 
 services:
   sonarqube-storage:
-    network_mode: none
     labels:
       io.rancher.container.hostname_override: container_name
       io.rancher.container.start_once: true
