@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  rocketchat:
+    image: rocketchat/rocket.chat:latest
+    volume_driver: ${volume_driver}
+    volumes:
+      - {{.Stack.Name}}--rocketchat-files:/app/uploads
+    environment:
+      - PORT=3000
+      - ROOT_URL=${base_url}
+      - MONGO_URL=mongodb://mongo:27017/${db_name}
+    links:
+      - mongo:mongo
+{{- if eq .Values.enable_ports "true"}}
+    ports:
+      - 3000:3000
+{{- end}}
+
+  mongo:
+    image: mongo:3.0.15
+    environment:
+      - MONGO_DATABASE=${db_name}
+    volume_driver: ${volume_driver}
+    volumes:
+      - {{.Stack.Name}}--mongo-data:/data/db

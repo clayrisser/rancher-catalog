@@ -1,0 +1,45 @@
+version: 2
+
+catalog:
+  name: RocketChat
+  version: v0.1-educaas
+  description: 'Have your own Slack like online chat, built with Meteor.'
+  uuid: rocketchat-0
+  minimum_rancher_version: v0.51.0
+  questions:
+    - variable: base_url
+      label: 'Base URL'
+      description: 'Base URL for server'
+      type: string
+      required: true
+    - variable: volume_driver
+      label: 'Volume Driver'
+      required: true
+      default: rancher-nfs
+      type: enum
+      options:
+        - rancher-nfs
+        - rancher-efs
+        - rancher-ebs
+        - local
+    - variable: enable_ports
+      label: 'Enable Ports'
+      type: enum
+      required: true
+      default: false
+      options:
+        - true
+        - false
+
+services:
+  rocketchat:
+    scale: 1
+    start_on_create: true
+    health_check:
+      port: 3000
+      interval: 2000
+      unhealthy_threshold: 3
+      strategy: recreate
+      request_line: GET / HTTP/1.0
+      healthy_threshold: 2
+      response_timeout: 2000
