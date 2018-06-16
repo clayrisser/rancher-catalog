@@ -73,7 +73,7 @@ catalog:
     - variable: version
       label: Version
       type: enum
-      default: 0.8.2
+      default: 0.8.5
       options:
         - 0.8.5
         - 0.8.4
@@ -86,7 +86,6 @@ catalog:
       label: 'Mysql Host'
       description: 'Leave empty to spin up a mysql docker container'
       type: string
-      default: drone
       required: false
     - variable: mysql_user
       label: 'Mysql User'

@@ -19,10 +19,14 @@ services:
 
   drone:
     image: drone/drone:${version}
-{{- if (.Values.public_port)}}
+{{- if not(.Values.public_port)}}
     ports:
       - ${public_port}:8000
 {{- end}}
+{{- if (.Values.mysql_host)}}
+    links:
+      - mysql:mysql
+{{- else }}
     environment:
       DRONE_HOST: ${base_url}
       GIN_MODE: release
@@ -64,9 +68,9 @@ services:
 {{- end}}
       DRONE_DATABASE_DRIVER: mysql
 {{- if (.Values.mysql_host)}}
-      DRONE_DATABASE_DATASOURCE: ${mysql_user}:${mysql_password}@tcp(${mysql_host}:3306)/${mysql_database}?parseTime=true
+      DRONE_DATABASE_DATASOURCE: ${mysql_user}:${mysql_password}@tcp(${mysql_host}:${mysql_port})/${mysql_database}?parseTime=true
 {{- else }}
-      DRONE_DATABASE_DATASOURCE: ${mysql_user}:${mysql_password}@tcp(mysql:${mysql_port})/${mysql_database}?parseTime=true
+      DRONE_DATABASE_DATASOURCE: ${mysql_user}:${mysql_password}@tcp(mysql:3306)/${mysql_database}?parseTime=true
 {{- end}}
     labels:
       io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
