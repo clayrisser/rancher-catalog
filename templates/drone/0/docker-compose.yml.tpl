@@ -19,7 +19,7 @@ services:
 
   drone:
     image: drone/drone:${version}
-{{- if not(.Values.public_port)}}
+{{- if not (.Values.public_port)}}
     ports:
       - ${public_port}:8000
 {{- end}}
