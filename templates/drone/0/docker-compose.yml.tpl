@@ -19,11 +19,11 @@ services:
 
   drone:
     image: drone/drone:${version}
-{{- if not (.Values.public_port)}}
+{{- if (.Values.public_port)}}
     ports:
       - ${public_port}:8000
 {{- end}}
-{{- if (.Values.mysql_host)}}
+{{- if not (.Values.mysql_host)}}
     links:
       - mysql:mysql
 {{- end }}
