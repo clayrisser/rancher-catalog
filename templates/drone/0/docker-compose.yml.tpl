@@ -14,7 +14,7 @@ services:
     command:
       - agent
     labels:
-      io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+      io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name={{.Stack.Name}}/agent
       io.rancher.container.hostname_override: container_name
 
   drone:
@@ -73,7 +73,7 @@ services:
       DRONE_DATABASE_DATASOURCE: ${mysql_user}:${mysql_password}@tcp(mysql:3306)/${mysql_database}?parseTime=true
 {{- end}}
     labels:
-      io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+      io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name={{.Stack.Name}}/drone
       io.rancher.container.hostname_override: container_name
 
 {{- if not (.Values.mysql_host)}}
@@ -85,5 +85,7 @@ services:
       MYSQL_PASSWORD: ${mysql_password}
     volume_driver: ${volume_driver}
     volumes:
-      - $${stack_name}--$${service_name}-data:/var/lib/mysql
+      - {{.Stack.Name}}--mysql-data:/var/lib/mysql
+    labels:
+      io.rancher.container.hostname_override: container_name
 {{- end}}
