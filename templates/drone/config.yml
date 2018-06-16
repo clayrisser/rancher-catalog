@@ -1,5 +1,5 @@
 name: Drone
 description: |
-    Drone continuous integration server
-version: 0.8.2
+  A continuous delivery system built on container technology
+version: 0.1.0
 category: Continuous Integration
