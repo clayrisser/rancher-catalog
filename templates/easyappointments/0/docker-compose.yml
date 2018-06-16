@@ -3,6 +3,10 @@ version: '2'
 services:
   easyappointments:
     image: codejamninja/easyappointments:${version}
+{{- if (.Values.public_port)}}
+    ports:
+      - ${public_port}:8888
+{{- end}}
 {{- if not (.Values.mysql_host)}}
     links:
       - mysql:db
