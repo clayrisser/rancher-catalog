@@ -68,7 +68,7 @@ services:
       drain_timeout_ms: 10000
       healthy_threshold: 2
       interval: 2000
-      port: 8000
+      port: 8888
       request_line: GET / HTTP/1.0
       response_timeout: 2000
       strategy: recreate
