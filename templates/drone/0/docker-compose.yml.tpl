@@ -73,7 +73,6 @@ services:
       DRONE_DATABASE_DATASOURCE: ${mysql_user}:${mysql_password}@tcp(mysql:3306)/${mysql_database}?parseTime=true
 {{- end}}
     labels:
-      io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name={{.Stack.Name}}/drone
       io.rancher.container.hostname_override: container_name
 
 {{- if not (.Values.mysql_host)}}
