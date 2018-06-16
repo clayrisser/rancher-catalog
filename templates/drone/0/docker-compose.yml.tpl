@@ -40,26 +40,26 @@ services:
 {{- end}}
 {{- if eq .Values.remote_driver "GitHub"}}
       DRONE_GITHUB: true
-      DRONE_GITHUB_CLIENT: ${remote_driver_client}
-      DRONE_GITHUB_SECRET: ${remote_driver_secret}
+      DRONE_GITHUB_CLIENT: ${remote_driver_access_key}
+      DRONE_GITHUB_SECRET: ${remote_driver_secret_key}
 {{- end}}
 {{- if eq .Values.remote_driver "Bitbucket Cloud"}}
       DRONE_BITBUCKET: true
-      DRONE_BITBUCKET_CLIENT: ${remote_driver_client}
-      DRONE_BITBUCKET_SECRET: ${remote_driver_secret}
+      DRONE_BITBUCKET_CLIENT: ${remote_driver_access_key}
+      DRONE_BITBUCKET_SECRET: ${remote_driver_secret_key}
 {{- end}}
 {{- if eq .Values.remote_driver "Bitbucket Server"}}
       DRONE_STASH: true
       DRONE_STASH_GIT_USERNAME: ${remote_driver_user}
       DRONE_STASH_GIT_PASSWORD: ${remote_driver_password}
-      DRONE_STASH_CONSUMER_KEY: ${remote_driver_client}
-      DRONE_STASH_CONSUMER_RSA_STRING: ${remote_driver_secret}
+      DRONE_STASH_CONSUMER_KEY: ${remote_driver_access_key}
+      DRONE_STASH_CONSUMER_RSA_STRING: ${remote_driver_secret_key}
       DRONE_STASH_URL: ${remote_driver_url}
 {{- end}}
 {{- if eq .Values.remote_driver "GitLab"}}
       DRONE_GITLAB: true
-      DRONE_GITLAB_CLIENT: ${remote_driver_secret}
-      DRONE_GITLAB_SECRET: ${remote_driver_secret}
+      DRONE_GITLAB_CLIENT: ${remote_driver_secret_key}
+      DRONE_GITLAB_SECRET: ${remote_driver_secret_key}
       DRONE_GITLAB_URL: ${remote_driver_url}
 {{- end}}
 {{- if eq .Values.remote_driver "Gogs"}}

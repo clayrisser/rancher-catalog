@@ -45,13 +45,13 @@ catalog:
         - Gogs
         - Bitbucket Cloud
         - Bitbucket Server
-    - variable: remote_driver_client
-      label: 'Remote Driver Client'
+    - variable: remote_driver_access_key
+      label: 'Remote Driver Access Key'
       description: 'Required for GitHub, Bitbucket Cloud, Bitbucket Server and GitLab'
       type: string
       required: false
-    - variable: remote_driver_secret
-      label: 'Remote Driver Secret'
+    - variable: remote_driver_secret_key
+      label: 'Remote Driver Secret Key'
       description: 'Required for GitHub, Bitbucket Cloud, Bitbucket Server and GitLab'
       type: multiline
       required: false
@@ -122,7 +122,7 @@ services:
     scale: ${agent_scale}
     start_on_create: true
 
-  server:
+  drone:
     scale: 1
     start_on_create: true
     health_check:
