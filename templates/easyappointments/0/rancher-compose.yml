@@ -33,7 +33,7 @@ catalog:
     - variable: mysql_user
       label: 'Mysql User'
       type: string
-      default: drone
+      default: easyappointments
       required: true
     - variable: mysql_password
       label: 'Mysql Password'
@@ -42,7 +42,7 @@ catalog:
     - variable: mysql_database
       label: 'Mysql Database'
       type: string
-      default: drone
+      default: easyappointments
       required: true
     - variable: volume_driver
       label: 'Volume Driver'
