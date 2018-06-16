@@ -83,6 +83,7 @@ services:
       MYSQL_DATABASE: ${mysql_database}
       MYSQL_USER: ${mysql_user}
       MYSQL_PASSWORD: ${mysql_password}
+      MYSQL_RANDOM_ROOT_PASSWORD: true
     volume_driver: ${volume_driver}
     volumes:
       - {{.Stack.Name}}--mysql-data:/var/lib/mysql
