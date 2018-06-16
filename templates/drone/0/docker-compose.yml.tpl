@@ -26,7 +26,7 @@ services:
 {{- if (.Values.mysql_host)}}
     links:
       - mysql:mysql
-{{- else }}
+{{- end }}
     environment:
       DRONE_HOST: ${base_url}
       GIN_MODE: release
