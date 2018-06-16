@@ -53,7 +53,7 @@ catalog:
     - variable: remote_driver_secret_key
       label: 'Remote Driver Secret Key'
       description: 'Required for GitHub, Bitbucket Cloud, Bitbucket Server and GitLab'
-      type: multiline
+      type: password
       required: false
     - variable: remote_driver_url
       label: 'Remote Driver URL'
