@@ -76,7 +76,7 @@ services:
       io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
       io.rancher.container.hostname_override: container_name
 
-{{- if (.Values.mysql_host)}}
+{{- if not (.Values.mysql_host)}}
   mysql:
     image: mariadb:10.3.7
     environment:
