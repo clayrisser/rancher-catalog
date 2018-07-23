@@ -5,6 +5,7 @@ catalog:
   version: 0.1.0
   description: |
     A continuous delivery system built on container technology
+  minimum_rancher_version: v1.5.5
   questions:
     - variable: base_url
       label: 'Base URL'

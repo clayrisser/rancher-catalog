@@ -1,3 +1,3 @@
 # isso
 
-A commenting server
+> A commenting server

@@ -1,6 +1,6 @@
 # grafana
 
-> Data visualization and monitoring with Prometheus integration
+> Data visualization and monitoring with prometheus integration
 
 ## Usage
 

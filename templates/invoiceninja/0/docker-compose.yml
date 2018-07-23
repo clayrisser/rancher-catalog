@@ -2,27 +2,39 @@ version: '2'
 
 services:
   invoiceninja:
-    image: moss/invoiceninja:latest
+    image: moss/invoiceninja:${version}
+{{- if (.Values.public_port)}}
+    ports:
+      - ${public_port}:????
+{{- end}}
+{{- if not (.Values.mysql_host)}}
+    links:
+      - mysql:db
+{{- end }}
     environment:
       APP_DEBUG: false
-      APP_URL: http://localhost:8888
+      APP_URL: ${base_url}
       DB_TYPE: mysql
       DB_DATABASE: ${mysql_database}
-      DB_USERNAME: root
-      DB_HOST: mysql
-      DB_PASSWORD: ${mysql_root_password}
+      DB_PASSWORD: ${mysql_password}
+      DB_USERNAME: ${mysql_user}
+{{- if (.Values.mysql_host)}}
+      DB_HOST: ${mysql_host}
+{{- end}}
       APP_ENV: production
       TRUSTED_PROXIES: 0.0.0.0/0
-    links:
-      - invoiceninja-data:db
 
-  invoiceninja-data:
-    image: mariadb:latest
+{{- if not (.Values.mysql_host)}}
+  mysql:
+    image: mariadb:10.3.7
     environment:
-      MYSQL_ROOT_PASSWORD: ${mysql_root_password}
       MYSQL_DATABASE: ${mysql_database}
-    tty: true
+      MYSQL_USER: ${mysql_user}
+      MYSQL_PASSWORD: ${mysql_password}
+      MYSQL_RANDOM_ROOT_PASSWORD: true
+    volume_driver: ${volume_driver}
     volumes:
-      - ${invoiceninja_data}:/var/lib/mysql
+      - {{.Stack.Name}}--mysql-data:/var/lib/mysql
     labels:
-      ident: true
+      io.rancher.container.hostname_override: container_name
+{{- end}}

@@ -2,28 +2,66 @@ version: '2'
 
 catalog:
   name: InvoiceNinja
-  version: 0.0.1
-  description: 'Invoices, expenses & time-tracking built with Laravel'
-  uuid: invoiceninja-0.0.1-0
+  version: 0.1.0
+  description: |
+    Open source invoices, expenses and time-tracking
+  minimum_rancher_version: v1.5.5
   questions:
-    - variable: mysql_root_password
-      label: 'MYSQL Root Password'
+    - variable: base_url
+      label: 'Base URL'
       type: string
       required: true
-      default: hellodocker
-    - variable: mysql_database
-      label: 'MYSQL Database'
+    - variable: version
+      label: Version
+      type: enum
+      default: latest
+      options:
+        - latest
+    - variable: mysql_host
+      label: 'Mysql Host'
+      description: 'Leave empty to spin up a mysql docker container'
       type: string
-      required: true
+      required: false
+    - variable: mysql_user
+      label: 'Mysql User'
+      type: string
       default: invoiceninja
-    - variable: invoiceninja_data
-      label: 'InvoiceNinja Data'
-      type: string
       required: true
-      default: /volumes/invoiceninja-data
+    - variable: mysql_password
+      label: 'Mysql Password'
+      type: password
+      required: true
+    - variable: mysql_database
+      label: 'Mysql Database'
+      type: string
+      default: invoiceninja
+      required: true
+    - variable: volume_driver
+      label: 'Volume Driver'
+      required: true
+      default: rancher-nfs
+      type: enum
+      options:
+        - rancher-nfs
+        - rancher-efs
+        - rancher-ebs
+        - local
+    - variable: public_port
+      label: 'Public Port'
+      description: 'Leave empty if you do not want an exposed port'
+      type: string
+      required: false
 
 services:
   invoiceninja:
     scale: 1
-  invoiceninja-data:
-    scale: 1
+    start_on_create: true
+    health_check:
+      drain_timeout_ms: 10000
+      healthy_threshold: 2
+      interval: 2000
+      port: ????
+      request_line: GET / HTTP/1.0
+      response_timeout: 2000
+      strategy: recreate
+      unhealthy_threshold: 3
