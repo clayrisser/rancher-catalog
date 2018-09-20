@@ -8,7 +8,6 @@ Please &#9733; this repo if you found it useful &#9733; &#9733; &#9733;
 
 
 ## Featured Templates
-<!------------------------------------------------------->
 
 * [InvoiceNinja](https://www.invoiceninja.com/)
 * [Easy!Appointments](http://easyappointments.org/)
@@ -17,7 +16,6 @@ Please &#9733; this repo if you found it useful &#9733; &#9733; &#9733;
 
 
 ## Installation
-<!------------------------------------------------------->
 
 1. Go to _Admin -> Settings_
 
@@ -26,21 +24,19 @@ Please &#9733; this repo if you found it useful &#9733; &#9733; &#9733;
 3. Add the following details
 
 | Name | Url | Branch |
-| -------- | --------------------------------------------------- | ------ |
-| jamrizzi | [https://github.com/jamrizzi/rancher-catalog.git]() | master |
+| ------------ | --------------------------------------------------- | ------ |
+| codejamninja | [https://github.com/codejamninja/rancher-catalog.git]() | master |
 
 4. Click __Save__
 
 
 ## Dependencies
-<!------------------------------------------------------->
 
 * [Docker](https://www.docker.com/)
 * [Rancher](http://rancher.com/)
 
 
 ## Usage
-<!------------------------------------------------------->
 
 1. Go to _Catalog -> JamRizzi_
 
@@ -48,13 +44,11 @@ Please &#9733; this repo if you found it useful &#9733; &#9733; &#9733;
 
 
 ## Support
-<!------------------------------------------------------->
 
 Submit an [issue](https://github.com/jamrizzi/rancher-catalog/issues/new)
 
 
 ## Buy Me Coffee
-<!------------------------------------------------------->
 
 A ridiculous amount of coffee was consumed in the process of building this project.
 
@@ -62,7 +56,6 @@ A ridiculous amount of coffee was consumed in the process of building this proje
 
 
 ## Contributing
-<!------------------------------------------------------->
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
@@ -72,7 +65,6 @@ A ridiculous amount of coffee was consumed in the process of building this proje
 
 
 ## License
-<!------------------------------------------------------->
 
 [MIT License](https://github.com/jamrizzi/rancher-catalog/blob/master/LICENSE)
 
@@ -80,13 +72,11 @@ A ridiculous amount of coffee was consumed in the process of building this proje
 
 
 ## Credits
-<!------------------------------------------------------->
 
 * [Jam Risser](https://jamrizzi.com) - Author
 
 
 ## Changelog
-<!------------------------------------------------------->
 
 0.0.1 (2017-06-05)
 * Initial release
