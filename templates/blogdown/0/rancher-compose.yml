@@ -1,0 +1,28 @@
+.catalog:
+  name: BlogDown
+  version: 1.0.0
+  description: 'BlogDown blogging platform'
+  uuid: blogdown-1.0.0-0
+  questions:
+    - variable: git_repo
+      label: 'Git Repo'
+      type: string
+      default: ''
+    - variable: git_branch
+      label: 'Git Branch'
+      type: string
+      default: 'origin/master'
+    - variable: git_username
+      label: 'Git Username'
+      type: string
+      default: ''
+    - variable: git_password
+      label: 'Git Password'
+      type: string
+      default: ''
+
+blogdown:
+  scale: 2
+
+deputy:
+  scale: 1
